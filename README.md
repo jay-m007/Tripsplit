@@ -16,6 +16,7 @@ Split trip expenses with friends, live. Add what everyone paid, and Trip Split w
 - **Pay on UPI.** If the person being paid has a UPI ID, "Pay with UPI" shows a QR for the exact amount and opens any UPI app. Mark it paid and the balances update for everyone.
 - **Works offline.** Changes are saved on your phone first and sent when you are back online.
 - **Group chat summary.** Copy or send on WhatsApp: who paid what and who pays whom.
+- **Soft glass look.** Frosted glass panels over a colour wash, with soft raised and pressed (neumorphic) buttons and inputs. Smooth entrance motion that switches off if your phone asks for reduced motion, and a plain solid fallback if it asks for reduced transparency.
 - **Light and dark mode.** Follows your phone, or choose with the button in the top bar.
 
 ## Privacy

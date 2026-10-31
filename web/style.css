@@ -195,3 +195,31 @@ dialog::backdrop{background:rgba(20,26,50,.45);backdrop-filter:blur(4px);animati
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+
+/* ---------- glass layer: frosted panels over a soft colour wash, with neumorphic controls on top ---------- */
+:root{--glass:rgba(255,255,255,.52);--glass-hi:rgba(255,255,255,.7);--glass-line:rgba(255,255,255,.75);--blur:blur(18px) saturate(1.5);
+  --wash:radial-gradient(60vmax 50vmax at 8% 4%,rgba(255,168,92,.5),transparent 60%),radial-gradient(55vmax 45vmax at 96% 14%,rgba(118,140,255,.42),transparent 60%),radial-gradient(60vmax 50vmax at 70% 100%,rgba(255,120,184,.32),transparent 60%),radial-gradient(45vmax 40vmax at 0% 92%,rgba(80,210,200,.3),transparent 60%)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--glass:rgba(40,46,74,.5);--glass-hi:rgba(52,60,94,.65);--glass-line:rgba(255,255,255,.12);
+  --wash:radial-gradient(60vmax 50vmax at 8% 4%,rgba(255,150,70,.26),transparent 60%),radial-gradient(55vmax 45vmax at 96% 14%,rgba(96,120,255,.36),transparent 60%),radial-gradient(60vmax 50vmax at 70% 100%,rgba(230,90,170,.26),transparent 60%),radial-gradient(45vmax 40vmax at 0% 92%,rgba(40,190,180,.22),transparent 60%)}}
+:root[data-theme=dark]{--glass:rgba(40,46,74,.5);--glass-hi:rgba(52,60,94,.65);--glass-line:rgba(255,255,255,.12);
+  --wash:radial-gradient(60vmax 50vmax at 8% 4%,rgba(255,150,70,.26),transparent 60%),radial-gradient(55vmax 45vmax at 96% 14%,rgba(96,120,255,.36),transparent 60%),radial-gradient(60vmax 50vmax at 70% 100%,rgba(230,90,170,.26),transparent 60%),radial-gradient(45vmax 40vmax at 0% 92%,rgba(40,190,180,.22),transparent 60%)}
+body{background:var(--wash) fixed,var(--bg)}
+@keyframes drift{0%,100%{background-position:0 0,0 0,0 0,0 0}50%{background-position:3% 2%,-3% 3%,2% -3%,-2% -2%}}
+.bar{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:0 1px 0 var(--glass-line),0 8px 24px color-mix(in srgb,var(--lo) 45%,transparent)}
+.cardbox,.ticket,.totals div,.exp,.net,.settle,.person,.line,.empty{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-line);box-shadow:var(--out-s),inset 0 1px 0 var(--glass-line)}
+.cardbox,.ticket,.totals div{box-shadow:var(--out),inset 0 1px 0 var(--glass-line)}
+.exp:hover{background:var(--glass-hi)}
+.ticket::before,.ticket::after{background:transparent;border:1px solid var(--glass-line)}
+.ticket:active,.exp:active{box-shadow:var(--in-s)}
+.tabs{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-line);box-shadow:var(--in-s)}
+.tabs button[aria-selected=true]{background:var(--glass-hi);box-shadow:var(--out-s),inset 0 1px 0 var(--glass-line)}
+.chip,.seg button,.btn:not(.primary):not(.ghost),.icon-btn,.mark{background:color-mix(in srgb,var(--bg) 80%,transparent)}
+.chip[aria-pressed=true],.seg button[aria-checked=true]{background:color-mix(in srgb,var(--accent) 34%,var(--bg))}
+.avatar.small-av{background:color-mix(in srgb,var(--bg) 70%,transparent)}
+.net .bar2{background:color-mix(in srgb,var(--bg) 55%,transparent)}
+dialog{background:var(--glass-hi);backdrop-filter:blur(26px) saturate(1.6);-webkit-backdrop-filter:blur(26px) saturate(1.6);border:1px solid var(--glass-line);box-shadow:0 24px 60px color-mix(in srgb,var(--lo) 80%,transparent),inset 0 1px 0 var(--glass-line)}
+dialog::backdrop{background:rgba(24,30,60,.38)}
+.toast{background:var(--glass-hi);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-line)}
+.owed{background:color-mix(in srgb,var(--bg) 45%,transparent)}
+@media (min-width:700px) and (prefers-reduced-motion:no-preference){body{animation:drift 26s ease-in-out infinite}}
+@media (prefers-reduced-transparency:reduce){:root{--glass:var(--bg);--glass-hi:var(--bg)}}
