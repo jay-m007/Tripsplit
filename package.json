@@ -1,0 +1,12 @@
+{
+  "name": "tripsplit",
+  "version": "1.0.0",
+  "description": "Split trip expenses with friends, live. Equal, shares, percent, exact or itemised bills, and settle up over UPI. Expenses are encrypted on your phone.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "build": "node tools/build.js",
+    "serve": "node tools/build.js && node tools/serve.js"
+  },
+  "license": "MIT"
+}
